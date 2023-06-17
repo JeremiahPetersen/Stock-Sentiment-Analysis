@@ -12,6 +12,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.preprocessing import MinMaxScaler
 from xgboost import XGBClassifier
+from datetime import datetime
 
 # Technical indicators
 def sma(data, window):
@@ -70,9 +71,9 @@ def train_and_evaluate_model(model, model_params, X_train, y_train, X_test, y_te
 def main(stock_ticker, news_headline):
     sentiment_analyzer = SentimentIntensityAnalyzer()
     
-    # Replace these dates with the range you want for historical data
-    start_date = '2010-01-01'
-    end_date = '2021-12-31'
+    # Historical Data
+    start_date = '1993-02-01'
+    end_date = datetime.now().strftime('%Y-%m-%d')
     
     # Preprocess data
     stock_data = preprocess_data(stock_ticker, start_date, end_date)
